@@ -71,7 +71,6 @@ export class EmployeeComponent implements OnInit {
   }
 
   onSave() {
-    debugger;
     this.employeeObj.createdDate = '2024-10-12T14:12:10.046Z';
     this.employeeServ.createEmployee(this.employeeObj).subscribe(
       (res: IApiresponse) => {

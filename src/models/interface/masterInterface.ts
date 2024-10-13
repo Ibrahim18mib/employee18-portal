@@ -15,3 +15,23 @@ export interface IchildDept {
   parentDeptId: string;
   departmentName: string;
 }
+
+export interface IProject {
+  projectId: number;
+  projectName: string;
+  clientName: string;
+  startDate: string;
+  leadByEmpId: number;
+  contactNo: string;
+  contactPerson: string;
+  emailId: string;
+}
+
+export interface IProjectEmployee {
+  empProjectId: number;
+  projectId: number;
+  empId: number;
+  assignedDate: string;
+  role: string;
+  isActive: string;
+}

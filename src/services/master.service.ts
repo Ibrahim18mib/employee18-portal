@@ -2,7 +2,7 @@ import { inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { endpointURLS, environment } from '../environment';
 import { Observable } from 'rxjs';
-import { IApiresponse } from '../models/interface/masterInterface';
+import { IApiresponse, IProject } from '../models/interface/masterInterface';
 import { Employee } from '../models/class/Employee';
 
 @Injectable({
@@ -48,6 +48,40 @@ export class MasterService {
   deleteEmployeeById(empId: number): Observable<IApiresponse> {
     return this.http.delete<IApiresponse>(
       `${environment.baseURL}${endpointURLS.deleteEmployee}/` + empId
+    );
+  }
+
+  //Projects
+  createProject(projObj: IProject): Observable<IProject> {
+    return this.http.post<IProject>(
+      `${environment.baseURL}${endpointURLS.createProject}`,
+      projObj
+    );
+  }
+
+  getProjectLists(): Observable<IProject[]> {
+    return this.http.get<IProject[]>(
+      `${environment.baseURL}${endpointURLS.getAllProjects}`
+    );
+  }
+
+  getProjectById(projId: number): Observable<IProject> {
+    return this.http.get<IProject>(
+      `${environment.baseURL}${endpointURLS.getProjById}/` + projId
+    );
+  }
+
+  updateProjectById(projObj: IProject): Observable<IApiresponse> {
+    return this.http.put<IApiresponse>(
+      `${environment.baseURL}${endpointURLS.updateProject}/` +
+        projObj.projectId,
+      projObj
+    );
+  }
+
+  deleteProjectById(projId: number): Observable<IApiresponse> {
+    return this.http.delete<IApiresponse>(
+      `${environment.baseURL}${endpointURLS.deleteProject}/` + projId
     );
   }
 }

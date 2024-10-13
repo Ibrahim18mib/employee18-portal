@@ -1,1 +1,59 @@
-<p>project-employee works!</p>
+<div class="row">
+    <div class="col-8">
+        <div class="card">
+            <div class="card-header bg-warning">
+                <h5>Project-Employee lists</h5>
+            </div>
+            <div class="card-body">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Emp Project ID</th>
+                            <th>Project ID</th>
+                            <th>Employee ID</th>
+                            <th>Assigned Date</th>
+                            <th>Role</th>
+                            <th>Is Active</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Data rows go here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="col-4">
+        <div class="card">
+            <div class="card-header bg-secondary">
+                <h5>Project Employees</h5>
+            </div>
+            <div class="card-body">
+                <form class="mb-4">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="projectId" class="form-label">Project ID</label>
+                            <input type="number" class="form-control" id="projectId" placeholder="Enter project ID">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="empId" class="form-label">Employee ID</label>
+                            <input type="number" class="form-control" id="empId" placeholder="Enter employee ID">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="assignedDate" class="form-label">Assigned Date</label>
+                            <input type="date" class="form-control" id="assignedDate">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="roleProjectEmployee" class="form-label">Role</label>
+                            <input type="text" class="form-control" id="roleProjectEmployee" placeholder="Enter role">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary mt-3">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
