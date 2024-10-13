@@ -17,4 +17,9 @@ export const endpointURLS = {
   getProjById: 'GetProject',
   updateProject: 'UpdateProject',
   deleteProject: 'DeleteProject',
+  //Project-Employee Endpoints
+  getAllEmpProjects: 'GetAllProjectEmployees',
+  createEmpProject: 'CreateProjectEmployee',
+  updateEmpProjectById: 'UpdateProjectEmployee',
+  deletEmpProjectById: 'DeleteProjectEmployee',
 };

@@ -18,7 +18,21 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- Data rows go here -->
+                        @for (item of empProjectLists(); track $index) {
+                        <tr>
+                            <td>{{$index+1}}</td>
+                            <td>{{item.projectId}}</td>
+                            <td>{{item.empId}}</td>
+                            <td>{{item.assignedDate}}</td>
+                            <td>{{item.role}}</td>
+                            <td>{{item.isActive}}</td>
+                            <td>
+                                <button type="button" class="btn btn-primary mt-1" (click)="onEdit(item)">Edit</button>
+                                <button type="button" class="btn btn-danger mt-1"
+                                    (click)="onDelete(item.empProjectId)">Delete</button>
+                            </td>
+                        </tr>
+                        }
                     </tbody>
                 </table>
             </div>
@@ -30,28 +44,48 @@
                 <h5>Project Employees</h5>
             </div>
             <div class="card-body">
-                <form class="mb-4">
+                <form class="mb-4" [formGroup]="empProjForm">
                     <div class="row">
                         <div class="col-md-6">
+
                             <label for="projectId" class="form-label">Project ID</label>
-                            <input type="number" class="form-control" id="projectId" placeholder="Enter project ID">
+                            <select class="form-select" formControlName="empProjectId">
+                                <option value="">Select</option>
+                                @for (item of projLists$ | async; track $index) {
+                                <option [value]="item.projectId">{{item.projectName}}</option>
+                                }
+                            </select>
+
                         </div>
                         <div class="col-md-6">
                             <label for="empId" class="form-label">Employee ID</label>
-                            <input type="number" class="form-control" id="empId" placeholder="Enter employee ID">
+                            <select class="form-select" formControlName="empId">
+                                <option value="">Select</option>
+                                @for (item of empLists$ | async; track $index) {
+                                <option [value]="item.employeeId">{{item.employeeName}}</option>
+                                }
+                            </select>
+
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-6">
                             <label for="assignedDate" class="form-label">Assigned Date</label>
-                            <input type="date" class="form-control" id="assignedDate">
+                            <input type="date" class="form-control" formControlName="assignedDate" id="assignedDate">
                         </div>
                         <div class="col-md-6">
                             <label for="roleProjectEmployee" class="form-label">Role</label>
-                            <input type="text" class="form-control" id="roleProjectEmployee" placeholder="Enter role">
+                            <input type="text" class="form-control" formControlName="role" id="roleProjectEmployee"
+                                placeholder="Enter role">
                         </div>
+                        <div class="col-md-6">
+                            <label for="roleProjectEmployee" class="form-radio">IsActive</label>
+                            <input type="checkbox" id="roleProjecActive" formControlName="isActive">
+                        </div>
+
                     </div>
-                    <button type="submit" class="btn btn-primary mt-3">Submit</button>
+
+                    <button type="button" class="btn btn-primary mt-3" (click)="onSaveEmpProj()">Submit</button>
                 </form>
             </div>
         </div>
