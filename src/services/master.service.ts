@@ -120,4 +120,11 @@ export class MasterService {
       `${environment.baseURL}${endpointURLS.deletEmpProjectById}/` + projId
     );
   }
+
+  //getDashboardData
+  getDashboardData(): Observable<any> {
+    return this.http.get<any>(
+      `${environment.baseURL}${endpointURLS.getDashboardData}`
+    );
+  }
 }

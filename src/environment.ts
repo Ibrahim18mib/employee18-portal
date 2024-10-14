@@ -22,4 +22,6 @@ export const endpointURLS = {
   createEmpProject: 'CreateProjectEmployee',
   updateEmpProjectById: 'UpdateProjectEmployee',
   deletEmpProjectById: 'DeleteProjectEmployee',
+  //Dashboard
+  getDashboardData: 'GetDashboard',
 };
